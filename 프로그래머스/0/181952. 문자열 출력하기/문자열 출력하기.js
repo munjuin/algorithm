@@ -4,11 +4,12 @@ const rl = readline.createInterface({
     output: process.stdout
 });
 
-let input = [];
+rl.on('line', (line)=>{
+    console.log(line);
+    
+    rl.close();
+})
 
-rl.on('line', function (line) {
-    input = [line];
-}).on('close',function(){
-    str = input[0];
-    console.log(str);
-});
+rl.on('close', ()=>{
+    process.exit();
+})
