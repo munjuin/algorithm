@@ -1,15 +1,6 @@
-const readline = require('readline');
-const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-});
+const fs = require('fs');
+const input = fs.readFileSync(0).toString().trim();// "string 5"
+const [str, n] = input.split(' ');// str="string, n="5"
+const repeatCount = Number(n);// 5
 
-let input = [];
-
-rl.on('line', function (line) {
-    input = line.split(' ');
-}).on('close', function () {
-    str = input[0];
-    n = Number(input[1]);
-    console.log(str.repeat(n));
-});
+console.log(str.repeat(repeatCount));
