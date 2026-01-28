@@ -1,13 +1,6 @@
-const readline = require('readline');
-const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-});
+const fs = require('fs');
+const input = fs.readFileSync(0).toString().trim();// "4 5"
+const splitString = input.split(' ');// ["4", "5"]
+const numbering = splitString.map((item)=>Number(item))// [4, 5];
 
-let input = [];
-
-rl.on('line', function (line) {
-    input = line.split(' ');
-}).on('close', function () {
-    console.log(`${Number(input[0])} + ${Number(input[1])} = ${Number(input[0]) + Number(input[1])}`);
-});
+console.log(`${numbering[0]} + ${numbering[1]} = ${numbering[0] + numbering[1]}`)// 4 + 5 = 9
