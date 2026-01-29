@@ -77,5 +77,32 @@
 <li><code>a</code> ⊕ <code>b</code> = 898 이고, <code>b</code> ⊕ <code>a</code> = 889 입니다. 둘 중 더 큰 값은 898 이므로 898을 return 합니다.</li>
 </ul>
 
+---
+
+## 💡 학습 노트: 더 크게 합치기 (Comparison of Concatenated Strings)
+
+### 1. 문제 핵심 요약
+- **핵심 키워드**: `#Type_Casting`, `#String_Concatenation`, `#Math.max()`
+- **문제의 본질**: 두 정수를 서로 다른 순서로 결합했을 때 발생하는 두 결과값 중 더 큰 값을 판별하여 반환하기.
+
+### 2. 작동 원리 및 설계 (Data Pipeline)
+1. **문자열 결합**: 정수 `a`와 `b`를 문자열로 변환하여 두 가지 조합(`ab`, `ba`) 생성.
+2. **형 변환**: 결합된 문자열을 다시 `Number` 타입으로 변환하여 산술 비교가 가능한 상태로 만듦.
+3. **비교 및 추출**: 
+   - `if...else` 문을 통한 조건부 할당.
+   - (최적화) `Math.max()` 함수를 사용하여 로직 간소화.
+
+### 3. 주요 기술 포인트
+- **템플릿 리터럴 활용**: `String(a) + String(b)` 대신 `` `${a}${b}` ``를 사용하여 가독성 높은 코드를 작성함.
+- **수치 비교의 안정성**: 문자열 상태에서의 비교보다 숫자로 형 변환 후 비교하는 것이 의도치 않은 논리 오류를 방지하는 데 유리함.
+
+### 4. 시행착오 및 깨달은 점
+- **자바스크립트의 유연성**: 숫자가 문자열과 결합될 때 자동으로 형 변환이 일어나는 특성을 활용하되, 결과값의 타입(`Number`)을 명확히 맞추는 것이 중요함을 인지함.
+- **선언적 함수 사용**: `Math.max`와 같은 내장 함수를 적절히 활용하면 복잡한 분기문을 줄이고 가독성을 높일 수 있음을 배움.
+
+### 5. 참고 자료
+- [MDN - Math.max()](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Math/max)
+- [MDN - Template literals](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Template_literals)
+
 
 > 출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges
