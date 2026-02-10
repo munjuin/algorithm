@@ -137,4 +137,33 @@
       </table><div class="highlight"><pre class="codehilite"><code>따라서 4항만 true이므로 10을 return 합니다.
 </code></pre></div>
 
+---
+
+## 💡 학습 노트: 등차수열의 특정한 항만 더하기
+
+### 1. 문제 핵심 요약
+- **핵심 키워드**: `#Arithmetic_Progression`, `#Array_Indexing`, `#Conditional_Summation`
+- **문제의 본질**: 등차수열의 일반항 생성 규칙을 이해하고, 불리언 배열의 상태에 따라 선별적으로 값을 합산하기.
+
+### 2. 작동 원리 및 설계
+1. **수열 생성 로직**: $i$번째 항의 값을 계산하는 식 $a + (i \times d)$을 도출.
+2. **조건부 필터링**: `included[i]`의 진리값(Truthiness)을 확인하여 연산 여부 결정.
+3. **누적 합산**: `true`인 항들만 추출하여 `answer` 변수에 가산.
+
+### 3. 수학적 공식 (General Term)
+- 등차수열의 $i$번째 항 ($i \ge 0$):
+  $$f(i) = a + (i \cdot d)$$
+
+### 4. 주요 기술 포인트
+- **인덱스 동기화**: `included` 배열의 인덱스 `i`와 등차수열의 순서 `i`가 정확히 1:1 대응되도록 루프를 설계함.
+- **성능 최적화**: 별도의 수열 배열을 만들지 않고, 루프 내에서 즉석(On-the-fly)으로 항의 값을 계산하여 메모리 효율을 높임.
+
+### 5. 깨달은 점
+- **비즈니스 로직의 결합**: 수학적 공식과 필터링 조건이 결합되었을 때, 이를 개별 단계로 나누어 생각하면 코드가 훨씬 단순해짐을 경험함.
+- **배열 접근 전략**: `included.length`를 활용하여 동적으로 변화하는 입력 데이터 크기에 유연하게 대응함.
+
+### 6. 참고 자료
+- [MDN - For Loops](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/for)
+- [위키백과 - 등차수열](https://ko.wikipedia.org/wiki/등차수열)
+
 > 출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges
