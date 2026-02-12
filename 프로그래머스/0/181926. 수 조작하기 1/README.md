@@ -73,5 +73,29 @@
 <li>따라서 -1을 return 합니다.</li>
 </ul>
 
+---
+
+## 💡 학습 노트: 수 조작하기 1 (Command Pattern)
+
+### 1. 문제 핵심 요약
+- **핵심 키워드**: `#Switch_Statement`, `#Object_Mapping`, `#Reduce_Method`
+- **문제의 본질**: 입력된 문자열 커맨드에 따라 변수 $n$의 상태를 동적으로 변경하는 로직 구현.
+
+### 2. 작동 원리 및 설계
+1. **커맨드 정의**: 각 문자("w", "a", "s", "d")에 대응하는 수치 변화량 정의.
+2. **배열화**: 문자열 `control`을 전개 연산자(`[...]`)를 사용하여 문자 배열로 변환.
+3. **상태 누적**: `reduce` 함수를 사용하여 초기값 $n$에 각 커맨드의 변화량을 순차적으로 가산.
+
+### 3. 주요 기술 포인트
+- **객체 리터럴 매핑**: `if-else` 분기문을 객체의 키-값(Key-Value) 구조로 대체하여 코드 가독성 및 유지보수성 향상.
+- **고차 함수 활용**: `forEach` 또는 `reduce`를 사용하여 명령형 프로그래밍을 선언적 프로그래밍 스타일로 전환.
+
+### 4. 깨달은 점
+- **확장성 있는 구조**: 새로운 명령어(예: "x"를 누르면 $n \times 2$)가 추가되더라도 매핑 객체만 수정하면 되는 유연한 구조의 중요성을 인지함.
+- **초기값의 역할**: `reduce`의 두 번째 인자로 시작값 $n$을 전달하여 연산의 연속성을 보장함.
+
+### 5. 참고 자료
+- [MDN - Array.prototype.reduce()](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce)
+- [자바스크립트 객체를 이용한 조건문 제거](https://ko.javascript.info/object)
 
 > 출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges
