@@ -66,5 +66,32 @@
 <li>마지막 원소인 5가 그전 원소인 7보다 크지 않기 때문에 5의 두 배인 10을 추가해 return합니다.</li>
 </ul>
 
+---
+
+## 💡 학습 노트: 마지막 두 원소 (Array Tail Access)
+
+### 1. 문제 핵심 요약
+- **핵심 키워드**: `#Array_Indexing`, `#push_method`, `#at_method`
+- **문제의 본질**: 배열의 끝단 데이터를 비교하여 동적인 규칙에 따라 새로운 원소를 생성하고 배열을 확장하기.
+
+### 2. 작동 원리 및 설계
+1. **끝단 데이터 접근**: `length - 1`, `length - 2` 인덱스를 사용하여 비교 대상 추출.
+2. **조건부 연산**:
+   - $last > prev \Rightarrow last - prev$
+   - $last \le prev \Rightarrow last \times 2$
+3. **배열 확장**: `push()` 메서드를 통해 원본 배열의 끝에 연산 결과 삽입.
+
+### 3. 주요 기술 포인트
+- **인덱스 접근법**: `array[array.length - 1]` 방식과 현대적인 `array.at(-1)` 방식의 차이 이해.
+- **메서드 대상 구분**: 메서드가 배열에 작용하는지(Array method) 데이터 값에 작용하는지 명확히 구분.
+
+### 4. 깨달은 점
+- **배열 조작의 안정성**: 원본 배열을 직접 수정하는 `push()`와 같은 메서드 사용 시, 반환값(`return`)이 수정된 배열 자체인지 확인하는 습관이 중요함을 인지함.
+- **변수 추상화**: `last`, `prev`와 같은 변수명을 사용하면 복잡한 인덱스 계산식보다 로직 파악이 훨씬 빠르다는 점을 배움.
+
+### 5. 참고 자료
+- [MDN - Array.prototype.at()](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/at)
+- [MDN - Array.prototype.push()](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/push)
+
 
 > 출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges
