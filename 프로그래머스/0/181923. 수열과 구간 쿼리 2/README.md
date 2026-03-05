@@ -75,5 +75,30 @@
 <li>따라서 [3, 4, -1]을 return 합니다.</li>
 </ul>
 
+---
+
+## 💡 학습 노트: 수열과 구간 쿼리 2 (Filtered Search)
+
+### 1. 문제 핵심 요약
+- **핵심 키워드**: `#Range_Query`, `#Conditional_Minimum`, `#Infinity_Initial_Value`
+- **문제의 본질**: 주어진 범위($s \le i \le e$) 내에서 특정 임계값($k$)을 초과하는 요소들을 필터링하고, 그 중 최솟값을 추출하는 알고리즘 구현.
+
+### 2. 작동 원리
+1. **쿼리 변환**: `map`을 사용하여 각 쿼리 `[s, e, k]`를 결과값으로 변환.
+2. **범위 탐색**: 루프 변수를 `s`부터 `e`까지 설정하여 해당 구간의 `arr` 요소에 접근.
+3. **최솟값 갱신**: `arr[i] > k` 조건을 만족할 때만 현재의 `minVal`과 비교하여 더 작은 값을 저장.
+4. **예외 처리**: 조건을 만족하는 값이 없을 경우 `-1`을 반환하도록 설계.
+
+### 3. 주요 기술 포인트
+- **초기값 설정 전략**: `Infinity`를 최솟값 비교의 시작점으로 활용하여 첫 비교 시 무조건 갱신되도록 유도.
+- **분할 정복적 사고**: 전체 배열이 아닌 특정 인덱스 범위만 잘라서 생각하는 인덱스 제어 기술 습득.
+
+### 4. 깨달은 점
+- **로직의 복합성**: 반복문 안에 조건문이 들어가고, 그 안에 다시 최솟값 비교가 들어가는 '중첩 로직'의 흐름을 제어하는 법을 익힘.
+- **상태 관리**: `found` 변수(flag)를 활용하여 검색 결과 유무를 효율적으로 판단하는 법을 배움.
+
+### 5. 참고 자료
+- [MDN - Array.prototype.map()](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
+- [자바스크립트 최솟값/최댓값 구하기](https://ko.javascript.info/number#ref-1774)
 
 > 출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges
