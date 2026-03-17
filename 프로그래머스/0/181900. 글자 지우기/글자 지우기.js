@@ -1,3 +1,4 @@
 function solution(my_string, indices) {
-    return [...my_string].filter((_, i) => !indices.includes(i)).join('');
+    const indexSet = new Set(indices);
+    return [...my_string].filter((_, i) => !indexSet.has(i)).join('');
 }
